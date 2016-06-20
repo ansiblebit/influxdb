@@ -11,6 +11,43 @@
 - include: validation.yml
   tags: validation
 
-- debug: >
-    msg="invoked"
+- name: ensure influxdb apt key is present
+  apt_key:
+    url=https://repos.influxdata.com/influxdb.key
+    state=present
+  become: yes
+  tags: [ apt ]
 
+- name: ensure influxdb apt repository is present
+  apt_repository:
+    repo="deb https://repos.influxdata.com/{{ ansible_distribution | lower }} {{ ansible_distribution_release | lower }} stable"
+    update_cache=yes
+    state=present
+  become: yes
+  tags: [ apt ]
+
+- name: ensure influxdb is installed
+  apt:
+    name=influxdb
+    state=present
+  become: yes
+  tags: installation
+
+- name: ensure integrity of influxdb configuration
+  template:
+    src=etc/influxdb/influxdb.conf.j2
+    dest=/etc/influxdb/influxdb.conf
+    owner="{{ influxdb_user }}"
+    group="{{ influxdb_group }}"
+    mode=0644
+  become: yes
+  notify: restart influxdb
+  tags: configuration
+
+- name: ensure influxdb is running and enabled to start on boot
+  service:
+    name: influxdb
+    state: started
+    enabled: yes
+  become: yes
+  tags: service

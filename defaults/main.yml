@@ -3,3 +3,83 @@
 #
 # defaults file
 #
+
+influxdb_configuration: |
+  reporting-disabled = false
+
+  [meta]
+  dir = "/var/lib/influxdb/meta"
+  lease-duration = "1m0s"
+  logging-enabled = true
+  pprof-enabled = false
+  retention-autocreate = true
+
+  [data]
+  data-logging-enabled = true
+  dir = "/var/lib/influxdb/data"
+  enabled = true
+  wal-dir = "/var/lib/influxdb/wal"
+  wal-logging-enabled = true
+
+  [cluster]
+  max-concurrent-queries = 0
+  max-select-buckets = 0
+  max-select-point = 0
+  max-select-series = 0
+  query-timeout = "0s"
+  shard-writer-timeout = "5s"
+  write-timeout = "10s"
+
+  [retention]
+  enabled = true
+  check-interval = "30m"
+
+  [shard-precreation]
+  enabled = true
+  advance-period = "30m"
+  check-interval = "10m"
+
+  [monitor]
+  store-database = "_internal"
+  store-enabled = true
+  store-interval = "10s"
+
+  [admin]
+  enabled = true
+  bind-address = ":{{ influxdb_admin_port }}"
+  https-certificate = "/etc/ssl/influxdb.pem"
+  https-enabled = false
+
+  [http]
+  enabled = true
+  auth-enabled = false
+  bind-address = ":{{ influxdb_http_port }}"
+  https-certificate = "/etc/ssl/influxdb.pem"
+  https-enabled = false
+  log-enabled = true
+  max-row-limit = 10000
+  pprof-enabled = false
+  write-tracing = false
+
+  [[graphite]]
+  enabled = false
+
+  [[collectd]]
+  enabled = false
+
+  [[opentsdb]]
+  enabled = false
+
+  [[udp]]
+  enabled = false
+
+  [continuous_queries]
+  log-enabled = true
+  enabled = true
+
+influxdb_admin_port: 8083
+influxdb_conf_file: /etc/influxdb/influxdb.conf
+influxdb_group: influxdb
+influxdb_http_port: 8086
+influxdb_user: influxdb
+influxdb_version: 0.13.0

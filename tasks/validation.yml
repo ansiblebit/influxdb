@@ -9,5 +9,9 @@
     msg="{{ item }} is a mandatory variable"
   when: "{{ item }} is not defined"
   with_items:
-    - debug
+    - influxdb_admin_port
+    - influxdb_conf_file
+    - influxdb_group
+    - influxdb_http_port
+    - influxdb_user
 

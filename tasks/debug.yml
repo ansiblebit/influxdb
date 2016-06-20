@@ -8,5 +8,11 @@
     var="{{ item }}"
   when: "{{ item }} is defined"
   with_items:
-    - debug
+    - ansible_distribution
+    - ansible_distribution_release
+    - influxdb_admin_port
+    - influxdb_conf_file
+    - influxdb_group
+    - influxdb_http_port
+    - influxdb_user
 
