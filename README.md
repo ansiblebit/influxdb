@@ -4,9 +4,6 @@
 [![Build Status](https://travis-ci.org/ansiblebit/influxdb.svg?branch=master)](https://travis-ci.org/ansiblebit/influxdb)
 
 [![Platform](http://img.shields.io/badge/platform-debian-a80030.svg?style=flat)](#)
-[![Platform](http://img.shields.io/badge/platform-centos-932279.svg?style=flat)](#)
-[![Platform](http://img.shields.io/badge/platform-fedora-3c6eb4.svg?style=flat)](#)
-[![Platform](http://img.shields.io/badge/platform-redhat-cc0000.svg?style=flat)](#)
 [![Platform](http://img.shields.io/badge/platform-ubuntu-dd4814.svg?style=flat)](#)
 
 [![Project Stats](https://www.openhub.net/p/ansiblebit-influxdb/widgets/project_thin_badge.gif)](https://www.openhub.net/p/ansiblebit-influxdb/)
