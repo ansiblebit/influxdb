@@ -69,7 +69,7 @@ vagrant:
         cpus: 1
 
   yakkety64.vagrant.dev:
-    enabled: true
+    enabled: false
     box: ubuntu/yakkety64
     network:
       name: private_network
