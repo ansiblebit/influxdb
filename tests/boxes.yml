@@ -1,5 +1,5 @@
 ---
-# file: primogen/tests/boxes.yml
+# file: influxdb/tests/boxes.yml
 #
 
 vagrant:

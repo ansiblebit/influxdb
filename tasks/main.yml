@@ -1,5 +1,5 @@
 ---
-# file: primogen/tasks/main.yml
+# file: influxdb/tasks/main.yml
 #
 # tasks file
 #
