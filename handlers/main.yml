@@ -4,9 +4,9 @@
 # handlers file
 #
 
-- name: ensure the influxdb is restarted
+- name: restart influxdb
   service:
-    name: restart influxdb
-    state: restarted
-    enabled: yes
+    name=influxdb
+    state=restarted
+    enabled=yes
   become: yes
