@@ -11,6 +11,21 @@
 - include: validation.yml
   tags: validation
 
+- name: include OS family/distribution specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "../defaults/{{ ansible_os_family | lower }}-{{ ansible_distribution | lower }}_{{ ansible_distribution_version | lower }}.yml"
+    - "../defaults/{{ ansible_os_family | lower }}-{{ ansible_distribution | lower }}.yml"
+    - "../defaults/{{ ansible_os_family | lower }}.yml"
+
+- name: ensure apt dependencies are installed
+  apt:
+    name="{{ item }}"
+    state=present
+  become: yes
+  when: ansible_distribution | lower == 'debian' and influxdb_apt_dependencies is defined
+  with_items: "{{ influxdb_apt_dependencies }}"
+
 - name: ensure influxdb apt key is present
   apt_key:
     url=https://repos.influxdata.com/influxdb.key

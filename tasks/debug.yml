@@ -11,6 +11,7 @@
     - ansible_distribution
     - ansible_distribution_release
     - influxdb_admin_port
+    - influxdb_apt_dependencies
     - influxdb_conf_file
     - influxdb_group
     - influxdb_http_port

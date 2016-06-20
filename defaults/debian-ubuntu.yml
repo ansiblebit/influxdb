@@ -1,0 +1,7 @@
+---
+# file: influxdb/defaults/debian-ubuntu.yml
+#
+# Ubuntu variables.
+#
+
+influxdb_apt_dependencies: []

@@ -1,0 +1,8 @@
+---
+# file: influxdb/defaults/debian-debian.yml
+#
+# Debian variables.
+#
+
+influxdb_apt_dependencies:
+  - apt-transport-https
