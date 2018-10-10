@@ -565,6 +565,7 @@ influxdb_configuration: |
 
 influxdb_conf_file: /etc/influxdb/influxdb.conf
 influxdb_group: influxdb
+influxdb_http_port: 8086
 influxdb_ifql_port: 8082
 influxdb_rpc_port: 8088
 influxdb_udp_port: 8089
