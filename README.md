@@ -10,7 +10,6 @@
 
 [Ansible][ansible] role to setup [InfluxDB][influxdb].
 
-
 ## Tests
 
 | Family | Distribution | Version | Test Status |
