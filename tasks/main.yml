@@ -20,11 +20,10 @@
 
 - name: ensure apt dependencies are installed
   apt:
-    name="{{ item }}"
+    name="{{ influxdb_apt_dependencies }}"
     state=present
   become: yes
   when: ansible_distribution | lower == 'debian' and influxdb_apt_dependencies is defined
-  with_items: "{{ influxdb_apt_dependencies }}"
 
 - name: ensure influxdb apt key is present
   apt_key:

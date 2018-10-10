@@ -7,11 +7,13 @@
 - name: ensure mandatory variables are set
   fail:
     msg="{{ item }} is a mandatory variable"
-  when: "{{ item }} is not defined"
+  when: item is not defined
   with_items:
-    - influxdb_admin_port
     - influxdb_conf_file
+    - influxdb_configuration
     - influxdb_group
     - influxdb_http_port
+    - influxdb_ifql_port
+    - influxdb_rpc_port
+    - influxdb_udp_port
     - influxdb_user
-

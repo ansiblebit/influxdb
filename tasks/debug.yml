@@ -6,14 +6,15 @@
 
 - debug:
     var="{{ item }}"
-  when: "{{ item }} is defined"
+  when: item is defined
   with_items:
     - ansible_distribution
     - ansible_distribution_release
-    - influxdb_admin_port
     - influxdb_apt_dependencies
     - influxdb_conf_file
     - influxdb_group
     - influxdb_http_port
+    - influxdb_ifql_port
+    - influxdb_rpc_port
+    - influxdb_udp_port
     - influxdb_user
-
